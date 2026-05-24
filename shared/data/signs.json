@@ -1,0 +1,14 @@
+[
+  {"id":"mesha",    "tamil":"மேஷம்",      "english":"Mesha",    "western":"Aries",       "ruler":"chevvai",  "element":"fire",  "modality":"movable","position":0},
+  {"id":"rishaba",  "tamil":"ரிஷபம்",     "english":"Rishaba",  "western":"Taurus",      "ruler":"sukran",   "element":"earth", "modality":"fixed",  "position":1},
+  {"id":"mithuna",  "tamil":"மிதுனம்",    "english":"Mithuna",  "western":"Gemini",      "ruler":"budhan",   "element":"air",   "modality":"dual",   "position":2},
+  {"id":"kataka",   "tamil":"கடகம்",      "english":"Kataka",   "western":"Cancer",      "ruler":"chandra",  "element":"water", "modality":"movable","position":3},
+  {"id":"simha",    "tamil":"சிம்மம்",    "english":"Simha",    "western":"Leo",         "ruler":"surya",    "element":"fire",  "modality":"fixed",  "position":4},
+  {"id":"kanni",    "tamil":"கன்னி",      "english":"Kanni",    "western":"Virgo",       "ruler":"budhan",   "element":"earth", "modality":"dual",   "position":5},
+  {"id":"thula",    "tamil":"துலாம்",     "english":"Thula",    "western":"Libra",       "ruler":"sukran",   "element":"air",   "modality":"movable","position":6},
+  {"id":"vrischika","tamil":"விருச்சிகம்","english":"Vrischika","western":"Scorpio",     "ruler":"chevvai",  "element":"water", "modality":"fixed",  "position":7},
+  {"id":"dhanus",   "tamil":"தனுசு",      "english":"Dhanus",   "western":"Sagittarius", "ruler":"devaguru", "element":"fire",  "modality":"dual",   "position":8},
+  {"id":"makara",   "tamil":"மகரம்",      "english":"Makara",   "western":"Capricorn",   "ruler":"shani",    "element":"earth", "modality":"movable","position":9},
+  {"id":"kumbha",   "tamil":"கும்பம்",    "english":"Kumbha",   "western":"Aquarius",    "ruler":"shani",    "element":"air",   "modality":"fixed",  "position":10},
+  {"id":"meena",    "tamil":"மீனம்",      "english":"Meena",    "western":"Pisces",      "ruler":"devaguru", "element":"water", "modality":"dual",   "position":11}
+]

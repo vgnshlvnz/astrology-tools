@@ -1,0 +1,6 @@
+[
+  {"id":"fire",  "tamil":"அக்னி","english":"Fire",  "color":"#a83232","signs":["mesha","simha","dhanus"],         "annotation":"Three signs of fire. Mesha begins fire — the spark of new action. Simha holds fire — the steady flame of the king. Dhanus releases fire — the arrow flying toward distant truth. Same element. Three movements."},
+  {"id":"earth", "tamil":"பூமி", "english":"Earth", "color":"#8b6914","signs":["rishaba","kanni","makara"],        "annotation":"Three signs of earth. Rishaba — the fertile soil that builds. Kanni — the careful tending of what grows. Makara — the mountain that endures. Earth in three movements: build, refine, endure."},
+  {"id":"air",   "tamil":"வாயு", "english":"Air",   "color":"#7a8590","signs":["mithuna","thula","kumbha"],        "annotation":"Three signs of air. Mithuna — the playful exchange of ideas. Thula — the weighing of opposing views. Kumbha — the vision that breaks open the old. Air in three movements: speak, balance, transform."},
+  {"id":"water", "tamil":"ஜலம்", "english":"Water", "color":"#2c4a6b","signs":["kataka","vrischika","meena"],      "annotation":"Three signs of water. Kataka — the water that nurtures home. Vrischika — the deep water that transforms through intensity. Meena — the ocean that dissolves all distinctions. Water in three movements: hold, transform, dissolve."}
+]

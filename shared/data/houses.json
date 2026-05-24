@@ -1,0 +1,14 @@
+[
+  {"id":1,  "tamil":"தனு",        "english_keywords":"Self, body, appearance",             "example_question":"What is this person like at first glance?"},
+  {"id":2,  "tamil":"தனம்",       "english_keywords":"Family, speech, wealth",             "example_question":"How do they speak? How do they hold wealth?"},
+  {"id":3,  "tamil":"சகோதரம்",   "english_keywords":"Siblings, courage, communication",   "example_question":"What is their relationship to siblings? Are they bold?"},
+  {"id":4,  "tamil":"தாய்",       "english_keywords":"Mother, home, comfort",              "example_question":"What is home for them?"},
+  {"id":5,  "tamil":"சந்தானம்",  "english_keywords":"Children, intelligence, creativity", "example_question":"What do they create? What about children?"},
+  {"id":6,  "tamil":"சத்ரு",     "english_keywords":"Enemies, disease, service",          "example_question":"What do they struggle against? How do they serve?"},
+  {"id":7,  "tamil":"களத்திரம்", "english_keywords":"Spouse, partnership",                "example_question":"Who will they marry? What is their partner like?"},
+  {"id":8,  "tamil":"ஆயுள்",     "english_keywords":"Longevity, transformation, hidden",  "example_question":"What hidden forces shape their life?"},
+  {"id":9,  "tamil":"பாக்கியம்", "english_keywords":"Father, dharma, fortune",            "example_question":"What is their relationship to father? To dharma?"},
+  {"id":10, "tamil":"கர்மம்",    "english_keywords":"Career, status, action",             "example_question":"What work will they be known for?"},
+  {"id":11, "tamil":"லாபம்",     "english_keywords":"Gains, friends, desires fulfilled",  "example_question":"What gains come to them? Who are their friends?"},
+  {"id":12, "tamil":"வ்யயம்",    "english_keywords":"Losses, liberation, expenditure",    "example_question":"Where do they spend themselves? What dissolves?"}
+]
