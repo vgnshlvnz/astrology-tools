@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ஜோதிட கருவிகள் — Astrology Tools</title>
+  <link rel="stylesheet" href="shared/styles.css">
+</head>
+<body>
+  <div class="scroll-container" style="padding-bottom:80px;">
+    <div id="invocation-mount"></div>
+
+    <nav class="tool-grid" aria-label="Tools">
+      <a class="tool-card" href="bodhidharma-scroll/">
+        <span class="tool-card-tamil">போதிதர்மர் சுருள்</span>
+        <span class="tool-card-english">Bodhidharma Scroll</span>
+        <span class="tool-card-desc">Two patterns hidden in the zodiac — ownership and elements — revealed through contemplative interaction.</span>
+      </a>
+      <a class="tool-card" href="houses-wheel/">
+        <span class="tool-card-tamil">பாவ சக்கரம்</span>
+        <span class="tool-card-english">Houses Wheel</span>
+        <span class="tool-card-desc">The 12 houses of Jyotish — Tamil keywords and the questions each house answers.</span>
+      </a>
+      <a class="tool-card" href="planet-cards/">
+        <span class="tool-card-tamil">கிரக அட்டைகள்</span>
+        <span class="tool-card-english">Planet Cards</span>
+        <span class="tool-card-desc">Nine planets, nine natures — flip each card to see what each planet carries.</span>
+      </a>
+    </nav>
+
+    <div id="bodhidharma-mount"></div>
+  </div>
+
+  <script type="module">
+    import { renderInvocation }      from './shared/invocation.js';
+    import { renderBodhidharmaBlock } from './shared/bodhidharma.js';
+    renderInvocation(document.getElementById('invocation-mount'));
+    renderBodhidharmaBlock(document.getElementById('bodhidharma-mount'), 80, 107);
+  </script>
+</body>
+</html>
