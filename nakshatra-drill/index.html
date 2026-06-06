@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>South Indian Rāśi Chart</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root {
+    --bg-from: #0b0a1a;
+    --bg-to: #1a1530;
+    --fg: #f5f3ee;
+    --fg-dim: rgba(245,243,238,0.6);
+    --line: rgba(255,255,255,0.08);
+    --line-strong: rgba(255,255,255,0.14);
+    --saffron: #ff9933;
+  }
+  html, body { background: linear-gradient(180deg, var(--bg-from) 0%, var(--bg-to) 100%); color: var(--fg); min-height: 100vh; }
+  body { font-family: 'Inter', system-ui, sans-serif; font-feature-settings: "ss01","cv11"; }
+  .text-dim { color: var(--fg-dim); }
+  .chart-grid {
+    display: grid;
+    grid-template-areas:
+      "pis ari tau gem"
+      "aqu ctr ctr can"
+      "cap ctr ctr leo"
+      "sag sco lib vir";
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    aspect-ratio: 1 / 1;
+    border: 1px solid var(--line-strong);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    background: rgba(255,255,255,0.015);
+  }
+  .chart-cell {
+    border: 1px solid var(--line);
+    padding: 8px 10px;
+    display: grid;
+    grid-template-rows: auto 1fr auto auto;
+    row-gap: 4px;
+    position: relative;
+    min-width: 0; min-height: 0;
+    transition: background .15s ease;
+  }
+  .chart-cell:hover { background: rgba(255,153,51,0.04); }
+  .chart-num { font-size: 10px; color: var(--fg-dim); font-family: 'JetBrains Mono', monospace; line-height: 1; }
+  .chart-glyph { font-size: 20px; text-align: center; line-height: 1; align-self: center; }
+  .chart-name { font-size: 11px; color: var(--fg-dim); text-align: center; line-height: 1.1; }
+  .chart-lord { font-size: 10px; text-align: center; line-height: 1; color: var(--saffron); opacity: 0.9; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.02em; }
+  .chart-lord .lord-glyph { margin-right: 3px; }
+  .chart-center {
+    grid-area: ctr;
+    border: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: rgba(255,153,51,0.03);
+    padding: 8px;
+  }
+  @media (max-width: 640px) {
+    .chart-glyph { font-size: 16px; }
+    .chart-name  { font-size: 10px; }
+    .chart-lord  { font-size: 9px; }
+    .chart-cell  { padding: 5px 5px; row-gap: 3px; }
+  }
+</style>
+</head>
+<body>
+<main class="max-w-2xl mx-auto px-6 py-10 lg:py-16">
+  <header class="mb-10">
+    <div class="text-xs uppercase tracking-[0.2em] text-dim mb-3">JA1 · Assignment 12 · Question 1</div>
+    <h1 class="text-3xl font-semibold leading-tight">South Indian Rāśi Chart</h1>
+    <p class="text-dim mt-3 text-sm leading-relaxed">Fixed-position reference layout · clockwise from Pisces.</p>
+  </header>
+
+  <div class="max-w-md mx-auto">
+    <div id="chart-grid" class="chart-grid"></div>
+  </div>
+  <p class="text-[11px] text-dim mt-4 leading-relaxed max-w-md mx-auto">In South Indian charts, sign positions never move — Pisces is always top-left, Aries top-second, and so on clockwise. Only planets and the Lagna marker shift between cells based on the chart being read. Numbers are zodiacal sign indices (1 = Aries); the saffron line shows each sign's ruling planet (Parashari rāśi-pati). Note: <em>sign lord</em> ≠ <em>nakshatra lord</em> — the Vimshottari sequence is a separate cycle.</p>
+
+  <footer class="mt-16 text-xs text-dim">Single file. No backend. No analytics. Read the source.</footer>
+</main>
+
+<script>
+function h(tag, attrs, ...children) {
+  const node = document.createElement(tag);
+  if (attrs) {
+    for (const [k, v] of Object.entries(attrs)) {
+      if (v == null || v === false) continue;
+      if (k === 'class') node.className = v;
+      else if (k === 'dataset') Object.assign(node.dataset, v);
+      else if (k === 'style') node.style.cssText = v;
+      else if (k === 'value') node.value = v;
+      else if (k === 'selected') node.selected = !!v;
+      else node.setAttribute(k, v);
+    }
+  }
+  for (const c of children) {
+    if (c == null || c === false) continue;
+    node.appendChild(c instanceof Node ? c : document.createTextNode(String(c)));
+  }
+  return node;
+}
+function clear(node) { while (node.firstChild) node.removeChild(node.firstChild); }
+
+function renderChart() {
+  const grid = document.getElementById('chart-grid');
+  if (!grid) return;
+  clear(grid);
+  const cells = [
+    { num: 12, name: 'Pisces',      glyph: '♓', area: 'pis', lord: 'Jupiter', lordGlyph: '♃' },
+    { num: 1,  name: 'Aries',       glyph: '♈', area: 'ari', lord: 'Mars',    lordGlyph: '♂' },
+    { num: 2,  name: 'Taurus',      glyph: '♉', area: 'tau', lord: 'Venus',   lordGlyph: '♀' },
+    { num: 3,  name: 'Gemini',      glyph: '♊', area: 'gem', lord: 'Mercury', lordGlyph: '☿' },
+    { num: 11, name: 'Aquarius',    glyph: '♒', area: 'aqu', lord: 'Saturn',  lordGlyph: '♄' },
+    { num: 4,  name: 'Cancer',      glyph: '♋', area: 'can', lord: 'Moon',    lordGlyph: '☽' },
+    { num: 10, name: 'Capricorn',   glyph: '♑', area: 'cap', lord: 'Saturn',  lordGlyph: '♄' },
+    { num: 5,  name: 'Leo',         glyph: '♌', area: 'leo', lord: 'Sun',     lordGlyph: '☉' },
+    { num: 9,  name: 'Sagittarius', glyph: '♐', area: 'sag', lord: 'Jupiter', lordGlyph: '♃' },
+    { num: 8,  name: 'Scorpio',     glyph: '♏', area: 'sco', lord: 'Mars',    lordGlyph: '♂' },
+    { num: 7,  name: 'Libra',       glyph: '♎', area: 'lib', lord: 'Venus',   lordGlyph: '♀' },
+    { num: 6,  name: 'Virgo',       glyph: '♍', area: 'vir', lord: 'Mercury', lordGlyph: '☿' }
+  ];
+  cells.forEach((c) => {
+    const cell = h('div',
+      { class: 'chart-cell', style: 'grid-area: ' + c.area + ';', title: c.name + ' · ruled by ' + c.lord },
+      h('div', { class: 'chart-num' }, String(c.num)),
+      h('div', { class: 'chart-glyph' }, c.glyph),
+      h('div', { class: 'chart-name' }, c.name),
+      h('div', { class: 'chart-lord' },
+        h('span', { class: 'lord-glyph' }, c.lordGlyph),
+        c.lord
+      )
+    );
+    grid.appendChild(cell);
+  });
+  const center = h('div', { class: 'chart-center' },
+    h('div', { class: 'text-[10px] uppercase tracking-[0.18em] text-dim' }, 'South Indian'),
+    h('div', { class: 'text-sm mt-1' }, 'Rāśi'),
+    h('div', { class: 'text-[10px] text-dim mt-2' }, 'fixed positions')
+  );
+  grid.appendChild(center);
+}
+
+renderChart();
+</script>
+</body>
+</html>
